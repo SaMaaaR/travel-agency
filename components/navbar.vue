@@ -17,13 +17,15 @@
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">{{$t('home')}}</a>
+            <a class="nav-link active" aria-current="page" href="#">{{
+              $t("home")
+            }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/promo">{{$t('promo')}}</a>
+            <a class="nav-link" href="/promo">{{ $t("promo") }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/booking">{{$t('booking')}}</a>
+            <a class="nav-link" href="/booking">{{ $t("booking") }}</a>
           </li>
         </ul>
         <div class="navbar-text d-flex">
@@ -34,14 +36,22 @@
               role="button"
               data-bs-toggle="dropdown"
               aria-expanded="false">
-              {{ locale == 'ar' ? 'AR' : 'EN' }}
+              {{ locale == "ar" ? "AR" : "EN" }}
             </a>
 
             <ul class="dropdown-menu">
-              <li v-for="(language,index) in languages" :key="index" :value="language.id"
-              @click="selectLanguage">
-              <span class="dropdown-item">{{language.label}}</span>
-            </li>
+              <li
+                v-for="(language, index) in languages"
+                :key="index"
+                :value="language.id"
+                @click="selectLanguage(language.id)">
+                <span class="dropdown-item">
+                  <div style="font-size: 80px">
+                    <FlagIcon iso="it" />
+                  </div>
+                  {{ language.label }}
+                </span>
+              </li>
             </ul>
           </div>
 
@@ -53,18 +63,20 @@
 </template>
 
 <script setup lang="ts">
-import {ref} from "vue";
-import { useI18n } from 'vue-i18n';
+import { ref } from "vue";
+import { useI18n } from "vue-i18n";
+import FlagIcon from 'vue-flag-icon'; // Import default export
 
-const { locale } = useI18n();
 // =========== initialize data =============
+const { locale } = useI18n();
+
 const languages = ref([
-  {id: 'ar', label: 'AR'},
-  {id: 'en', label:'EN'}
-])
+  { id: "ar", label: "AR" },
+  { id: "en", label: "EN" },
+]);
 // ============================== Methods ====================
-const selectLanguage = () => {
-  locale.value = locale.value === 'ar' ? 'en' : 'ar';
+const selectLanguage = (language: string) => {
+  locale.value = language;
 };
 </script>
 

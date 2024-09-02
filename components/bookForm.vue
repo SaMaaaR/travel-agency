@@ -75,9 +75,7 @@
           </span>
           Cabin Class & Travelers
         </label>
-        <select
-          class="form-select"
-          aria-label="Large select example">
+        <select class="form-select" aria-label="Large select example">
           <option selected>Select class</option>
           <option value="1">One</option>
           <option value="2">Two</option>
@@ -86,7 +84,14 @@
       </div>
 
       <div class="col-12">
-        <button type="submit" class="btn btn-main d-flex">
+        <div class="d-grid gap-2" v-if="isMobileView">
+          <button type="submit" class="btn btn-dark d-flex justify-content-center align-items-center">
+            <span class="material-symbols-rounded mx-2"> search </span>
+            <span> {{ $t("search") }} </span>
+          </button>
+        </div>
+
+        <button type="submit" class="btn btn-main d-flex" v-else>
           <span class="material-symbols-rounded"> search </span>
         </button>
       </div>
@@ -101,7 +106,10 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
+// =============== initialize data =============
+// Reactive variable to track if the screen is in mobile view
+const isMobileView = ref(false);
 
 // Define the types of trips
 const types = ref([
@@ -111,6 +119,18 @@ const types = ref([
 
 // Set the default selected type to '1' (Round trip)
 const selectedType = ref("1");
+// ============== methods ==================
+const updateScreenSize = () => {
+  isMobileView.value = window.innerWidth < 768;
+};
+// =============== onMounted and onBeforMounted ===============
+onMounted(() => {
+  updateScreenSize();
+  window.addEventListener("resize", updateScreenSize);
+});
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", updateScreenSize);
+});
 </script>
 <style lang="scss" scoped>
 .booking-form {
