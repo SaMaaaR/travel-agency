@@ -17,13 +17,13 @@
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="#">{{$t('home')}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/promo">Promo</a>
+            <a class="nav-link" href="/promo">{{$t('promo')}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/booking">My Booking</a>
+            <a class="nav-link" href="/booking">{{$t('booking')}}</a>
           </li>
         </ul>
         <div class="navbar-text d-flex">
@@ -34,12 +34,12 @@
               role="button"
               data-bs-toggle="dropdown"
               aria-expanded="false">
-              {{ selectedLanguage.label }}
+              {{ locale == 'ar' ? 'AR' : 'EN' }}
             </a>
 
             <ul class="dropdown-menu">
               <li v-for="(language,index) in languages" :key="index" :value="language.id"
-              @click="selectLanguage(language)">
+              @click="selectLanguage">
               <span class="dropdown-item">{{language.label}}</span>
             </li>
             </ul>
@@ -54,20 +54,20 @@
 
 <script setup lang="ts">
 import {ref} from "vue";
+import { useI18n } from 'vue-i18n';
 
+const { locale } = useI18n();
 // =========== initialize data =============
 const languages = ref([
   {id: 'ar', label: 'AR'},
   {id: 'en', label:'EN'}
 ])
-// Set the default selected language to Arabic
-const selectedLanguage = ref(languages.value.find(lang => lang.id === 'ar') || languages.value[0]);
-
 // ============================== Methods ====================
-const selectLanguage = (language: any) => {
-  selectedLanguage.value = language;
+const selectLanguage = () => {
+  locale.value = locale.value === 'ar' ? 'en' : 'ar';
 };
 </script>
+
 <style lang="scss" scoped>
 .nav-link {
   color: var(--gray-color);

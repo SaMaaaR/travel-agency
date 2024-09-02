@@ -1,13 +1,18 @@
+import { defineNuxtConfig } from 'nuxt/config';
+
 export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
-  css: ["bootstrap/dist/css/bootstrap.min.css", "@/assets/main.scss"], // Ensure CSS is loaded globally
+  css: ["bootstrap/dist/css/bootstrap.min.css",
+     "@/assets/main.scss",
+  ],
   build: {
     transpile: ["bootstrap"],
   },
   plugins: [
-    { src: "~/plugins/bootstrap.client.ts", mode: "client" }, // Correctly loading only on the client side
-    { src: '~/plugins/vue-flag-icon.ts', mode: 'client' }, // Ensure correct mode
+    { src: "~/plugins/bootstrap.client.ts"},
+    { src: '~/plugins/vue-flag-icon.ts'},
+    { src: "~/plugins/vueI18n.ts"},
   ],
   vite: {
     define: {
@@ -24,5 +29,4 @@ export default defineNuxtConfig({
       ],
     },
   },
-
 });
