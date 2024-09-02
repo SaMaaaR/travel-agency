@@ -1,6 +1,8 @@
 import { defineNuxtPlugin } from '#app';
-import VueFlagIcon from 'vue-flag-icon';
+import type { NuxtApp } from '#app';
 
-export default defineNuxtPlugin(nuxtApp => {
-  nuxtApp.vueApp.component('VueFlagIcon', VueFlagIcon);
+import FlagIcon from 'vue-flag-icon';
+
+export default defineNuxtPlugin((nuxtApp: NuxtApp) => {
+  nuxtApp.vueApp.use(FlagIcon);
 });

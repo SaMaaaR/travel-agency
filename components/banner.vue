@@ -22,14 +22,21 @@
 .banner {
   background-image: url(../assets/images/world-map.png);
   height: calc(100vh - 100px);
+  @media (max-width: 768px) {
+    height: unset !important;
+  }
   .title {
     height: 25vh;
     h1 {
-        background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); /* Replace with your colors */
-        -webkit-background-clip: text;
-  -moz-background-clip: text;
-  background-clip: text;
-  color: transparent;
+      background: linear-gradient(
+        45deg,
+        var(--primary-color),
+        var(--secondary-color)
+      ); 
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
   }
 }
