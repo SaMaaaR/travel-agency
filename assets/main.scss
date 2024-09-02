@@ -1,0 +1,46 @@
+              :root {
+                 --primary-color: #183867;
+                 --secondary-color: #EAA121;
+                 --gray-color: #333333;
+             }
+             
+             body {
+                 color: var(--primary-color);
+             }
+             
+             .btn-main {
+                 background-color: var(--secondary-color);
+                 color: #fff;
+                 border-color: var(--secondary-color);
+                 &:hover,
+                 &:focus-visible,
+                 &.active {
+                     background-color: var(--secondary-color);
+                     color: #fff;
+                     border-color: var(--secondary-color);
+                 }
+             }
+             
+             .btn-outlined {
+                 color: var(--secondary-color);
+                 background-color: #fff;
+                 border-color: var(--secondary-color);
+                 &:hover,
+                 &:focus-visible,
+                 &.active {
+                     color: var(--secondary-color);
+                     background-color: #fff;
+                     border-color: var(--secondary-color);
+                 }
+             }
+             
+             .form-check-input {
+                 &:checked {
+                     background-color: var(--secondary-color);
+                     border-color: var(--secondary-color);
+                     ;
+                 }
+                 &:focus {
+                     box-shadow: none;
+                 }
+             }
