@@ -7,7 +7,7 @@
             <span>{{ blog?.location }}</span>
         </div>
       <h5 class="card-title">{{blog?.name}}</h5>
-      <span>{{ blog?.days }} {{ blog?.days? 'Days' : '' }}</span>
+      <span>{{ blog?.days }} {{ blog?.days? $t('days') : '' }}</span>
       <p class="price mt-2">{{ blog?.price }}</p>
     </div>
   </div>

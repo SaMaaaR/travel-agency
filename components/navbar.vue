@@ -55,7 +55,7 @@
             </ul>
           </div>
 
-          <button type="button" class="btn btn-main">Sign in</button>
+          <button type="button" class="btn btn-main">{{$t('signIn')}}</button>
         </div>
       </div>
     </div>
@@ -65,7 +65,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useI18n } from "vue-i18n";
-import FlagIcon from 'vue-flag-icon'; // Import default export
+import FlagIcon from 'vue-flag-icon';
 
 // =========== initialize data =============
 const { locale } = useI18n();
