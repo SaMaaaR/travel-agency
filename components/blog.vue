@@ -1,5 +1,5 @@
 <template>
-  <div class="blog container-fluid">
+  <div class="blog container-fluid pb-5">
     <div class="row">
       <div class="col-12 d-flex justify-content-start my-5">
         <div class="title">

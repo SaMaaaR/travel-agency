@@ -34,6 +34,9 @@
     "trust": "Trust and safety",
     "android": "Trimpa for Android",
     "ios": "Trimpa for IOS",
-    "mobileSite": "Mobile site"
+    "mobileSite": "Mobile site",
+    "optionOne": "1 adult, Economy",
+    "optionTwo": "2 adult, Class",
+    "optionThree": "2 adult, Economy"
 
 }
