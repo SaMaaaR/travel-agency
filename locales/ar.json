@@ -33,5 +33,8 @@
     "trust": "الثقة والأمان",
     "android": "Trimpa لأندرويد",
     "ios": "Trimpa لنظام iOS",
-    "mobileSite": "الموقع الإلكتروني على الجوال"
+    "mobileSite": "الموقع الإلكتروني على الجوال",
+    "optionOne": "1 بالغ، اقتصادي",
+    "optionTwo": "2 بالغين، درجة",
+    "optionThree": "2 بالغين، اقتصادي"
 }

@@ -1,4 +1,5 @@
 <template>
+  <!-- start header section which contain the form and word description -->
   <div class="banner container-fluid">
     <div class="row">
       <div class="col-12 d-flex justify-content-center my-5 text-center">

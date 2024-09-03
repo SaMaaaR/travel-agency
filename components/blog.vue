@@ -1,5 +1,5 @@
 <template>
-  <div class="blog container-fluid">
+  <div class="blog container-fluid pb-5">
     <div class="row">
       <div class="col-12 d-flex justify-content-start my-5">
         <div class="title">
@@ -20,7 +20,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import blogImage from "@/assets/images/blog.png";
-
+// =============== initialize data ======================
 const blogs = ref([
   {
     id: "0",

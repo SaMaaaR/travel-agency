@@ -1,4 +1,5 @@
 <template>
+  <!-- start footer -->
   <footer class="footer p-5">
     <div class="container-fluid">
       <div class="row row-30">
@@ -9,7 +10,7 @@
           <h5>{{$t('about')}}</h5>
           <ul class="nav-list">
             <li v-for="(item, index) in aboutLinks" :key="index">
-              <router-link :to="item.url">{{ item.name }}</router-link>
+              <router-link :to="item.url">{{ $t(item.name) }}</router-link>
             </li>
           </ul>
         </div>
@@ -17,7 +18,7 @@
           <h5>{{$t('support')}}</h5>
           <ul class="nav-list">
             <li v-for="(item, index) in supportLinks" :key="index">
-              <router-link :to="item.url">{{ item.name }}</router-link>
+              <router-link :to="item.url">{{ $t(item.name) }}</router-link>
             </li>
           </ul>
         </div>
@@ -25,7 +26,7 @@
           <h5>{{$t('getApp')}}</h5>
           <ul class="nav-list">
             <li v-for="(item, index) in appLinks" :key="index">
-              <a :href="item.url" target="_blank">{{ item.name }}</a>
+              <a :href="item.url" target="_blank">{{ $t(item.name) }}</a>
             </li>
             <li>
               <a
@@ -55,62 +56,59 @@
 </template>
 <script lang="ts" setup>
 import { ref } from "vue";
-import { useI18n } from 'vue-i18n';
 
 // =============== initialize data =============
-const { t } = useI18n();
-
 const aboutLinks = ref([
   {
-    name: t('aboutGoose'),
+    name: 'aboutGoose',
     url: "/promo",
   },
   {
-    name: t('howWorks'),
+    name: 'howWorks',
     url: "/promo",
   },
   {
-    name: t('blog'),
+    name: 'blog',
     url: "/promo",
   },
   {
-    name: t('form'),
+    name: 'form',
     url: "/page",
   },
 ]);
 const supportLinks = ref([
   {
-    name: t('helpCenter'),
+    name: 'helpCenter',
     url: "/promo",
   },
   {
-    name: t('contact'),
+    name: 'contact',
     url: "/promo",
   },
   {
-    name: t('policy'),
+    name: 'policy',
     url: "/promo",
   },
   {
-    name: t('terms'),
+    name: 'terms',
     url: "/promo",
   },
   {
-    name: t('trust'),
+    name: 'trust',
     url: "/promo",
   },
 ]);
 const appLinks = ref([
   {
-    name: t('android'),
+    name: 'android',
     url: "https://play.google.com/store/games?hl=en&pli=1",
   },
   {
-    name: t('ios'),
+    name: 'ios',
     url: "https://play.google.com/store/games?hl=en&pli=1",
   },
   {
-    name: t('mobileSite'),
+    name: 'mobileSite',
     url: "https://play.google.com/store/games?hl=en&pli=1",
   },
 ]);
