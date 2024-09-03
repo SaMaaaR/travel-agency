@@ -22,32 +22,32 @@
       v-if="selectedType == '1'"
       class="row row-cols-lg-auto g-3 align-items-center justify-content-center mt-0">
       <div class="col-12 mb-3">
-        <label for="flignFrom" class="form-label d-flex">
+        <label for="flignFrom" class="form-label d-flex text-capitalize">
           <span class="material-symbols-rounded mx-1"> flight_takeoff </span>
-          From
+          {{$t('from')}}
         </label>
         <input
           type="text"
           class="form-control"
           id="flignFrom"
-          placeholder="Flight from?" />
+          :placeholder="$t('flightFrom')" />
       </div>
 
       <div class="col-12 mb-3">
-        <label for="flightTo" class="form-label d-flex">
-          <span class="material-symbols-rounded mx-1"> flight_land </span> To
+        <label for="flightTo" class="form-label d-flex text-capitalize">
+          <span class="material-symbols-rounded mx-1"> flight_land </span> {{ $t('to') }}
         </label>
         <input
           type="text"
           class="form-control"
           id="flightTo"
-          placeholder="Where to?" />
+          :placeholder="$t('whereTo')" />
       </div>
 
       <div class="col-12 mb-3">
-        <label for="depart" class="form-label d-flex">
+        <label for="depart" class="form-label d-flex text-capitalize">
           <span class="material-symbols-rounded mx-1"> calendar_month </span>
-          Depart
+          {{$t('depart')}}
         </label>
         <input
           type="date"
@@ -57,9 +57,9 @@
       </div>
 
       <div class="col-12 mb-3">
-        <label for="return" class="form-label d-flex">
+        <label for="return" class="form-label d-flex text-capitalize">
           <span class="material-symbols-rounded mx-1"> calendar_month </span>
-          Return
+          {{$t('return')}}
         </label>
         <input
           type="date"
@@ -69,14 +69,14 @@
       </div>
 
       <div class="col-12 mb-3">
-        <label for="class" class="form-label d-flex">
+        <label for="class" class="form-label d-flex text-capitalize">
           <span class="material-symbols-rounded mx-1">
             airline_seat_recline_extra
           </span>
-          Cabin Class & Travelers
+          {{$t('class')}}
         </label>
         <select class="form-select" aria-label="Large select example">
-          <option selected>Select class</option>
+          <option selected>{{ $t('select') }}</option>
           <option value="1">One</option>
           <option value="2">Two</option>
           <option value="3">Three</option>
@@ -107,14 +107,17 @@
 
 <script lang="ts" setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
+import { useI18n } from 'vue-i18n';
+
 // =============== initialize data =============
 // Reactive variable to track if the screen is in mobile view
 const isMobileView = ref(false);
+const { t } = useI18n();
 
 // Define the types of trips
 const types = ref([
-  { id: "0", label: "One way" },
-  { id: "1", label: "Round trip" },
+  { id: "0", label: t('oneWay') },
+  { id: "1", label: t('roundTrip') },
 ]);
 
 // Set the default selected type to '1' (Round trip)

@@ -3,8 +3,8 @@
     <div class="row">
       <div class="col-12 d-flex justify-content-start my-5">
         <div class="title">
-          <h3>Popular Destinations</h3>
-          <span>Vacations to make your experience enjoyable in Indonesia!</span>
+          <h3>{{ $t('destination') }}</h3>
+          <span>{{$t('blogDesc')}}</span>
         </div>
       </div>
       <div

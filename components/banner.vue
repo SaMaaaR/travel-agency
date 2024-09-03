@@ -3,9 +3,9 @@
     <div class="row">
       <div class="col-12 d-flex justify-content-center my-5 text-center">
         <div class="title d-flex align-items-end">
-          <h1>
-            Discover Our Paradise Worlds, <br />
-            Travel Anywhere Now!
+          <h1 class="text-capitalize">
+            {{$t('discover')}} <br />
+            {{$t('travel')}}
           </h1>
         </div>
       </div>
