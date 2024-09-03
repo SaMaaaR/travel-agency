@@ -20,7 +20,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import blogImage from "@/assets/images/blog.png";
-
+// =============== initialize data ======================
 const blogs = ref([
   {
     id: "0",

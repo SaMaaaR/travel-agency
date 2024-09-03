@@ -1,4 +1,5 @@
 <template>
+  <!-- start blog card with props to get card details from parent -->
   <div class="blog-card card p-2">
     <img :src="blog?.image" class="card-img-top" alt="..." />
     <div class="card-body">
@@ -26,6 +27,14 @@ const props = defineProps({
     .material-symbols-rounded,
     .price {
         color: var(--secondary-color);
+    }
+    .card-title {
+      color: var(--primary-color);
+    }
+    &:hover {
+      transition: all .5s ease-in-out;
+      background-color: rgba(240, 164, 31, 0.1);
+      border: 1px solid var(--secondary-color);
     }
 }
 </style>

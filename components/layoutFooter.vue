@@ -1,4 +1,5 @@
 <template>
+  <!-- start footer -->
   <footer class="footer p-5">
     <div class="container-fluid">
       <div class="row row-30">

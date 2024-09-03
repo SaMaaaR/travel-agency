@@ -1,6 +1,6 @@
 <template>
   <!-- start booking form -->
-  <form class="row booking-form p-3">
+  <form class="row booking-form p-3" @submit.prevent="submitForm">
     <!-- radio buttons to choose trip type -->
     <div class="col-12 d-flex justify-content-center align-items-center">
       <div class="form-check mx-2" v-for="(type, index) in types" :key="index">
@@ -17,19 +17,21 @@
       </div>
     </div>
     <hr class="mt-3" />
+
     <!-- if the trip is round trip (start inputs) -->
     <div
       v-if="selectedType == '1'"
       class="row row-cols-lg-auto g-3 align-items-center justify-content-center mt-0">
       <div class="col-12 mb-3">
-        <label for="flignFrom" class="form-label d-flex text-capitalize">
+        <label for="flightFrom" class="form-label d-flex text-capitalize">
           <span class="material-symbols-rounded mx-1"> flight_takeoff </span>
           {{ $t("from") }}
         </label>
         <input
           type="text"
           class="form-control"
-          id="flignFrom"
+          id="flightFrom"
+          v-model="formData.flightFrom"
           :placeholder="$t('flightFrom')" />
       </div>
 
@@ -42,6 +44,7 @@
           type="text"
           class="form-control"
           id="flightTo"
+          v-model="formData.flightTo"
           :placeholder="$t('whereTo')" />
       </div>
 
@@ -54,6 +57,7 @@
           type="date"
           class="form-control"
           id="depart"
+          v-model="formData.depart"
           placeholder="DD/MM/YYYY" />
       </div>
 
@@ -66,6 +70,7 @@
           type="date"
           class="form-control"
           id="return"
+          v-model="formData.return"
           placeholder="DD/MM/YYYY" />
       </div>
 
@@ -76,8 +81,7 @@
           </span>
           {{ $t("class") }}
         </label>
-        <select class="form-select" aria-label="Large select example">
-          <option selected>{{ $t("select") }}</option>
+        <select class="form-select" v-model="formData.class" aria-label="Large select example">
           <option
             v-for="(item, index) in classesList"
             :key="index"
@@ -102,6 +106,7 @@
         </button>
       </div>
     </div>
+
     <!-- if the trip is one way -->
     <div class="row" v-else>
       <div class="col-12">
@@ -118,13 +123,11 @@ import { ref, onMounted, onBeforeUnmount } from "vue";
 // Reactive variable to track if the screen is in mobile view
 const isMobileView = ref(false);
 
-// Define the types of trips
 const types = ref([
   { id: "0", label: "oneWay" },
   { id: "1", label: "roundTrip" },
 ]);
 
-// Define classesList
 const classesList = ref([
   { id: "0", label: "optionOne" },
   { id: "1", label: "optionTwo" },
@@ -133,11 +136,27 @@ const classesList = ref([
 
 // Set the default selected type to '1' (Round trip)
 const selectedType = ref("1");
-// ============== methods ==================
+
+// Form data object
+const formData = ref({
+  flightFrom: "",
+  flightTo: "",
+  depart: "",
+  return: "",
+  class: "",
+});
+// ==================== Methods ==================
+// Function to update screen size status
 const updateScreenSize = () => {
   isMobileView.value = window.innerWidth < 768;
 };
-// =============== onMounted and onBeforMounted ===============
+
+// Function to submit form data
+const submitForm = () => {
+  console.log("Form Data:", formData.value);
+};
+
+// =============== onMounted and onBeforeUnmount ===============
 onMounted(() => {
   updateScreenSize();
   window.addEventListener("resize", updateScreenSize);
@@ -146,6 +165,7 @@ onBeforeUnmount(() => {
   window.removeEventListener("resize", updateScreenSize);
 });
 </script>
+
 <style lang="scss" scoped>
 .booking-form {
   background-color: #fff;
